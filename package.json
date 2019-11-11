@@ -17,9 +17,12 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write '*.{json,js}' 'src/**/*'"
+    "format": "prettier --write '*.{json,js}' '{src,types}/**/*'"
   },
   "dependencies": {
-    "preact": "^10.0.5"
+    "clsx": "^1.0.4",
+    "preact": "^10.0.5",
+    "redux-bundler": "^26.0.0",
+    "redux-bundler-preact": "^2.0.0"
   }
 }

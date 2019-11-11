@@ -414,6 +414,11 @@ cli-truncate@^0.2.1:
     slice-ansi "0.0.4"
     string-width "^1.0.1"
 
+clsx@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.0.4.tgz#0c0171f6d5cb2fe83848463c15fcc26b4df8c2ec"
+  integrity sha512-1mQ557MIZTrL/140j+JVdRM6e31/OA4vTYxXgqIIZlndyfjHpyawKZia1Im05Vp9BWmImkcNrNtFYQMyFcgJDg==
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
@@ -1554,6 +1559,16 @@ redent@^2.0.0:
   dependencies:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
+
+redux-bundler-preact@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/redux-bundler-preact/-/redux-bundler-preact-2.0.0.tgz#65f38ab40c8a925b7b88a2d7a2dd25d631223ea1"
+  integrity sha512-WlXpoo/8yuI7y+EcqP1J65JS37t08AEeOSqbGRSRfR6CMeFUW8Fs14Z65DsPKwGk/tNr1f+UhXC4rLK4gxRlWQ==
+
+redux-bundler@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/redux-bundler/-/redux-bundler-26.0.0.tgz#53aed97cf917ba9e3ed66faee0a55240f9c83d05"
+  integrity sha512-zkaobdcEKgibWObUzDeMC7vIfeVVID/4P7xpfCDvbsc8N5lgCS6/XmIlr3k8d62z+Of9DztTixYo+NuizH/Mjg==
 
 regenerator-runtime@^0.10.5:
   version "0.10.5"
