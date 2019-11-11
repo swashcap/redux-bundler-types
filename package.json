@@ -6,5 +6,16 @@
   "repository": "git@github.com:swashcap/redux-bundler-types.git",
   "author": "Cory Reed",
   "license": "Apache-2.0",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "build": "echo 'build'",
+    "format": "prettier --write '*.{json,js}' 'src/**/*'"
+  }
 }
