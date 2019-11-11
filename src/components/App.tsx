@@ -14,7 +14,7 @@ export interface AppConnectedProps {
   theme: any
 }
 
-export const App = connect(
+export const App = connect<AppOwnProps, any, AppConnectedProps>(
   'doToggleTheme',
   'selectTheme',
   class extends Component<AppOwnProps & AppConnectedProps> {

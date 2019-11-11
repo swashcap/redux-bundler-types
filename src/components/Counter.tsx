@@ -12,7 +12,7 @@ export interface CounterConnectedProps {
   isMinimum: boolean
 }
 
-export const Counter = connect(
+export const Counter = connect<CounterOwnProps, any, CounterConnectedProps>(
   'doDecrementCount',
   'doIncrementCount',
   'selectCount',

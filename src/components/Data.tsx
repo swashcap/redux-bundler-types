@@ -12,7 +12,7 @@ export interface DataConnectedProps {
   store: any
 }
 
-export const Data = connect(
+export const Data = connect<DataOwnProps, any, DataConnectedProps>(
   'doFetchData',
   'selectData',
   'selectError',

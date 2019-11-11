@@ -1,13 +1,19 @@
-import { createSelector } from 'redux-bundler'
+import {
+  Bundle,
+  createSelector,
+  BundleActionCreatorOptions
+} from 'redux-bundler'
+
+export interface ApiState {
+  isLoading: boolean
+  error: Error | null
+  data: any | null
+}
 
 export const api = {
   name: 'api',
   reducer: (
-    state: {
-      isLoading: boolean
-      error: Error | null
-      data: any | null
-    } = { isLoading: false, error: null, data: null },
+    state = { isLoading: false, error: null, data: null },
     action: any
   ) => {
     if (action.type === 'API_SET_LOADING') {
@@ -31,7 +37,7 @@ export const api = {
 
     return state
   },
-  getExtraArgs(store: any) {
+  getExtraArgs: (store: any) => {
     return {
       headers: ['sample']
     }
