@@ -1,6 +1,8 @@
 import { JSX, h } from 'preact'
 import { connect } from 'redux-bundler-preact'
 
+import { Button } from './Button'
+
 export type CounterOwnProps = JSX.HTMLAttributes<HTMLDivElement>
 
 export interface CounterConnectedProps {
@@ -23,22 +25,23 @@ export const Counter = connect(
       <p class="f3 mb3 mt0">
         Current count: <strong>{count}</strong>
       </p>
-      <button
-        aria-label="Decrement"
-        class="bg-blue db dim white"
-        onClick={() => doDecrementCount(1)}
-        type="button"
-      >
-        -
-      </button>
-      <button
-        aria-label="Increment"
-        class="bg-blue db dim white"
-        onClick={() => doIncrementCount(1)}
-        type="button"
-      >
-        +
-      </button>
+      <div class="flex">
+        <Button
+          aria-label="Decrement"
+          onClick={() => doDecrementCount(1)}
+          type="button"
+        >
+          -
+        </Button>
+        <div class="w1"></div>
+        <Button
+          aria-label="Increment"
+          onClick={() => doIncrementCount(1)}
+          type="button"
+        >
+          +
+        </Button>
+      </div>
     </div>
   )
 )

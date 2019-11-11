@@ -2,6 +2,7 @@ import { Component, JSX, h } from 'preact'
 import { connect } from 'redux-bundler-preact'
 import clsx from 'clsx'
 
+import { Button } from './Button'
 import { Counter } from './Counter'
 
 export type AppOwnProps = JSX.HTMLAttributes<HTMLDivElement>
@@ -24,7 +25,7 @@ export const App = connect(
       return (
         <div
           class={clsx(
-            'mw8 ph3',
+            'center mw8 ph3',
             {
               'bg-black white': theme === 'dark',
               'bg-white black': theme === 'light'
@@ -33,15 +34,14 @@ export const App = connect(
           )}
           {...rest}
         >
-          <header class="pv3" role="banner">
-            <h1 class="f5 m0">redux-bundler-types</h1>
-            <button
-              class="bg-blue db dim white"
-              onClick={doToggleTheme}
-              type="button"
-            >
+          <header
+            class="bb flex items-center justify-between mb3 pv3"
+            role="banner"
+          >
+            <h1 class="f5 fw7 ma0">redux-bundler-types</h1>
+            <Button onClick={doToggleTheme} type="button">
               Change theme
-            </button>
+            </Button>
           </header>
           <main>
             <Counter />
