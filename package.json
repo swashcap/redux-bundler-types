@@ -1,0 +1,10 @@
+{
+  "name": "redux-bundler-types",
+  "version": "1.0.0",
+  "description": "Testing ground for TypeScript types in the redux-bundler libraries",
+  "main": "src/index.tsx",
+  "repository": "git@github.com:swashcap/redux-bundler-types.git",
+  "author": "Cory Reed",
+  "license": "Apache-2.0",
+  "private": true
+}
