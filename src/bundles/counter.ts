@@ -12,12 +12,12 @@ export const counter = {
   },
   doDecrementCount: (value: number) => ({
     dispatch,
-    store
+    getState
   }: {
     dispatch: Function
-    store: any
+    getState: any
   }) => {
-    if (store - value > 0) {
+    if (getState().counter - value >= 0) {
       dispatch({
         payload: value,
         type: 'COUNTER_DECREMENT'
@@ -29,5 +29,6 @@ export const counter = {
       payload: value,
       type: 'COUNTER_INCREMENT'
     }),
-  selectCount: (state: any) => state
+  selectCount: (state: any) => state.counter,
+  selectIsMinimum: (state: any) => state.counter === 0
 }

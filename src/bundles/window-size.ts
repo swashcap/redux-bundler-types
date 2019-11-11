@@ -5,7 +5,7 @@ import { HAS_WINDOW } from 'redux-bundler'
  */
 export const windowSize = {
   name: 'windowSize',
-  reducer: (state: { height: null; width: null }, action: any) => {
+  reducer: (state = { height: null, width: null }, action: any) => {
     if (action.type === 'WINDOW_SIZE_SET') {
       return action.payload
     }

@@ -1,13 +1,13 @@
 export const theme = {
   name: 'theme',
   getReducer: (initialTheme: string = 'light') => (
-    state = { lastSet: Date.now(), theme: initialTheme },
+    state = { currentTheme: initialTheme, lastSet: Date.now() },
     action: any
   ) => {
     if (action.type === 'THEME_SET') {
       return {
-        lastSet: Date.now(),
-        theme: action.payload
+        currentTheme: action.payload,
+        lastSet: Date.now()
       }
     }
 
@@ -15,13 +15,13 @@ export const theme = {
   },
   doToggleTheme: () => ({
     dispatch,
-    store
+    getState
   }: {
     dispatch: Function
-    store: any
+    getState: any
   }) => {
     dispatch({
-      payload: store.theme === 'light' ? 'dark' : 'light',
+      payload: getState().theme.currentTheme === 'light' ? 'dark' : 'light',
       type: 'THEME_SET'
     })
   },
