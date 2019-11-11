@@ -16,7 +16,10 @@
     "typescript": "^3.7.2"
   },
   "scripts": {
-    "build": "echo 'build'",
+    "build": "tsc",
     "format": "prettier --write '*.{json,js}' 'src/**/*'"
+  },
+  "dependencies": {
+    "preact": "^10.0.5"
   }
 }
