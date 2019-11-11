@@ -12,7 +12,7 @@ const mount = () => {
   if (appEl) {
     render(
       <Provider store={store}>
-        <App />
+        <App class="vh-100" />
       </Provider>,
       appEl
     )

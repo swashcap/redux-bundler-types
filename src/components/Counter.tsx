@@ -9,16 +9,19 @@ export interface CounterConnectedProps {
   count: number
   doDecrementCount: (value: number) => any
   doIncrementCount: (value: number) => any
+  isMinimum: boolean
 }
 
 export const Counter = connect(
   'doDecrementCount',
   'doIncrementCount',
   'selectCount',
+  'selectIsMinimum',
   ({
     count,
     doDecrementCount,
     doIncrementCount,
+    isMinimum,
     ...rest
   }: CounterOwnProps & CounterConnectedProps) => (
     <div {...rest}>
@@ -28,12 +31,13 @@ export const Counter = connect(
       <div class="flex">
         <Button
           aria-label="Decrement"
+          disabled={isMinimum}
           onClick={() => doDecrementCount(1)}
           type="button"
         >
           -
         </Button>
-        <div class="w1"></div>
+        <div class="w1"> </div>
         <Button
           aria-label="Increment"
           onClick={() => doIncrementCount(1)}

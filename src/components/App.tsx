@@ -9,7 +9,7 @@ export type AppOwnProps = JSX.HTMLAttributes<HTMLDivElement>
 
 export interface AppConnectedProps {
   doToggleTheme: () => any
-  theme: 'light' | 'dark'
+  theme: any
 }
 
 export const App = connect(
@@ -25,27 +25,28 @@ export const App = connect(
       return (
         <div
           class={clsx(
-            'center mw8 ph3',
             {
-              'bg-black white': theme === 'dark',
-              'bg-white black': theme === 'light'
+              'bg-black white': theme.currentTheme === 'dark',
+              'bg-white black': theme.currentTheme === 'light'
             },
             className
           )}
           {...rest}
         >
-          <header
-            class="bb flex items-center justify-between mb3 pv3"
-            role="banner"
-          >
-            <h1 class="f5 fw7 ma0">redux-bundler-types</h1>
-            <Button onClick={doToggleTheme} type="button">
-              Change theme
-            </Button>
-          </header>
-          <main>
-            <Counter />
-          </main>
+          <div class="center mw8 ph3">
+            <header
+              class="bb flex items-center justify-between mb3 pv3"
+              role="banner"
+            >
+              <h1 class="f5 fw7 ma0">redux-bundler-types</h1>
+              <Button onClick={doToggleTheme} type="button">
+                Change theme
+              </Button>
+            </header>
+            <main>
+              <Counter />
+            </main>
+          </div>
         </div>
       )
     }
