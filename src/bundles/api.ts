@@ -21,11 +21,11 @@ export const api = {
         data: action.payload,
         error: null
       }
-    } else if (action.type === 'API') {
+    } else if (action.type === 'API_SET_ERROR') {
       return {
         ...state,
         data: null,
-        error: action.payoad
+        error: action.payload
       }
     }
 
@@ -43,17 +43,25 @@ export const api = {
     })
 
     try {
-      const response = await fetch('/api')
+      const response = await fetch('http://localhost:3000/posts')
 
       if (!response.ok) {
-        throw new Error(`${response.status}: ${response.statusText}`)
+        throw new Error(`Error: ${response.status} ${response.statusText}`)
+      } else if (response.status >= 300) {
+        throw new Error(`Redirect: ${response.status} ${response.statusText}`)
       }
 
+      const payload = await response.json()
+
       dispatch({
-        payload: await response.json(),
+        payload,
         type: 'API_SET_DATA'
       })
     } catch (error) {
+      if (process.env.NODE_ENV === 'development') {
+        console.error(error)
+      }
+
       dispatch({
         payload: error,
         type: 'API_SET_ERROR'
@@ -65,17 +73,20 @@ export const api = {
       })
     }
   },
-  doResetData: () => {},
-  selectIsLoading: (state: any) => state.isLoading,
+  selectIsLoading: (state: any) => state.api.isLoading,
+  selectError: (state: any) => state.api.error,
   selectData: createSelector(
     'selectCount',
-    (state: any) => state.data,
+    (state: any) => state.api.data,
     'selectTheme',
-    (count: any, data: any, theme: any) => ({
-      count,
-      data,
-      theme
-    })
+    (count: any, data: any, theme: any) =>
+      data
+        ? {
+            count,
+            data,
+            theme
+          }
+        : null
   ),
   persistActions: ['API_SET_DATA']
 }

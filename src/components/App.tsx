@@ -4,11 +4,13 @@ import clsx from 'clsx'
 
 import { Button } from './Button'
 import { Counter } from './Counter'
+import { Data } from './Data'
 
 export type AppOwnProps = JSX.HTMLAttributes<HTMLDivElement>
 
 export interface AppConnectedProps {
   doToggleTheme: () => any
+  store: any
   theme: any
 }
 
@@ -19,6 +21,7 @@ export const App = connect(
     render({
       class: className,
       doToggleTheme,
+      store,
       theme,
       ...rest
     }: AppOwnProps & AppConnectedProps) {
@@ -44,7 +47,8 @@ export const App = connect(
               </Button>
             </header>
             <main>
-              <Counter />
+              <Counter class="bb mb3 pb3" />
+              <Data class="mb3" />
             </main>
           </div>
         </div>
